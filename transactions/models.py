@@ -42,9 +42,12 @@ class Transaction(models.Model):
         return self.label
 
     def save(self, *args, **kwargs):
+        self.clean()
+        return super().save(*args, **kwargs)
+
+    def clean(self):
         if self.sub_category and self.sub_category.category != self.category:
             raise ValidationError("Sub category must be in the same category")
-        return super().save(*args, **kwargs)
 
     @property
     def total_amount(self):
