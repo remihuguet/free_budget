@@ -28,7 +28,6 @@ class Transaction(models.Model):
         default=0,
     )
     vat_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     category = models.IntegerField(choices=CATEGORIES)
     sub_category = models.ForeignKey(
         SubCategory,
@@ -46,3 +45,7 @@ class Transaction(models.Model):
         if self.sub_category and self.sub_category.category != self.category:
             raise ValidationError("Sub category must be in the same category")
         return super().save(*args, **kwargs)
+
+    @property
+    def total_amount(self):
+        return self.amount + self.vat_amount

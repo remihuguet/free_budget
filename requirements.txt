@@ -1,3 +1,5 @@
 Django
 black
 flake8
+pytest
+pytest-django
