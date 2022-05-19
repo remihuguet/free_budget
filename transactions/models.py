@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 
 CATEGORIES = [
     (0, "Non catégorisé"),
@@ -40,3 +41,8 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.label
+
+    def save(self, *args, **kwargs):
+        if self.sub_category and self.sub_category.category != self.category:
+            raise ValidationError("Sub category must be in the same category")
+        return super().save(*args, **kwargs)
