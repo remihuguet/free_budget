@@ -1,3 +1,5 @@
+from datetime import datetime
+import decimal
 from django.db import models
 from django.forms import ValidationError
 
@@ -22,8 +24,8 @@ class SubCategory(models.Model):
 
 
 class Transaction(models.Model):
-    date = models.DateField(auto_now_add=True)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateField()
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     vat_percentage = models.IntegerField(
         default=0,
     )
@@ -46,9 +48,19 @@ class Transaction(models.Model):
         return super().save(*args, **kwargs)
 
     def clean(self):
+        if not self.date:
+            self.date = datetime.today()
         if self.sub_category and self.sub_category.category != self.category:
             raise ValidationError("Sub category must be in the same category")
 
     @property
-    def total_amount(self):
-        return self.amount + self.vat_amount
+    def amount(self):
+        return decimal.Decimal(
+            round(
+                self.total_amount / decimal.Decimal((1 + self.vat_percentage / 100)), 2
+            )
+        )
+
+    @property
+    def vat_amount(self):
+        return self.total_amount - self.amount

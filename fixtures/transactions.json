@@ -1,0 +1,279 @@
+[
+  {
+    "model": "transactions.subcategory",
+    "pk": 2,
+    "fields": { "name": "Coûts fixes", "category": 2 }
+  },
+  {
+    "model": "transactions.subcategory",
+    "pk": 3,
+    "fields": { "name": "Coûts variables", "category": 2 }
+  },
+  {
+    "model": "transactions.subcategory",
+    "pk": 4,
+    "fields": { "name": "IR à la source", "category": 6 }
+  },
+  {
+    "model": "transactions.subcategory",
+    "pk": 5,
+    "fields": { "name": "URSAFF", "category": 5 }
+  },
+  {
+    "model": "transactions.subcategory",
+    "pk": 6,
+    "fields": { "name": "Retraite", "category": 5 }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 6,
+    "fields": {
+      "date": "2022-05-01",
+      "total_amount": "-10.80",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Banque"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 7,
+    "fields": {
+      "date": "2022-05-01",
+      "total_amount": "-118.80",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Compta + Paie"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 8,
+    "fields": {
+      "date": "2022-05-05",
+      "total_amount": "-230.96",
+      "vat_percentage": 0,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Mutuelle"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 9,
+    "fields": {
+      "date": "2022-05-20",
+      "total_amount": "-8.41",
+      "vat_percentage": 0,
+      "category": 2,
+      "sub_category": 3,
+      "label": "Hébergement site web"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 10,
+    "fields": {
+      "date": "2022-05-22",
+      "total_amount": "-124.98",
+      "vat_percentage": 10,
+      "category": 2,
+      "sub_category": 3,
+      "label": "Livres"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 11,
+    "fields": {
+      "date": "2022-05-17",
+      "total_amount": "-1140.00",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 3,
+      "label": "Matériel"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 12,
+    "fields": {
+      "date": "2022-05-30",
+      "total_amount": "-4500.00",
+      "vat_percentage": 0,
+      "category": 3,
+      "sub_category": null,
+      "label": "Salaire président"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 13,
+    "fields": {
+      "date": "2022-05-15",
+      "total_amount": "-400.00",
+      "vat_percentage": 0,
+      "category": 6,
+      "sub_category": 4,
+      "label": "Prélévement à la source"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 14,
+    "fields": {
+      "date": "2022-05-15",
+      "total_amount": "-2458.13",
+      "vat_percentage": 0,
+      "category": 5,
+      "sub_category": 5,
+      "label": "URSAFF"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 15,
+    "fields": {
+      "date": "2022-05-15",
+      "total_amount": "-855.00",
+      "vat_percentage": 0,
+      "category": 5,
+      "sub_category": 6,
+      "label": "Retraite"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 16,
+    "fields": {
+      "date": "2022-05-31",
+      "total_amount": "14000.00",
+      "vat_percentage": 20,
+      "category": 1,
+      "sub_category": null,
+      "label": "Client Foo"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 17,
+    "fields": {
+      "date": "2022-04-01",
+      "total_amount": "-10.80",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Banque"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 18,
+    "fields": {
+      "date": "2022-04-01",
+      "total_amount": "-118.80",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Compta + Paie"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 19,
+    "fields": {
+      "date": "2022-04-05",
+      "total_amount": "-230.96",
+      "vat_percentage": 0,
+      "category": 2,
+      "sub_category": 2,
+      "label": "Mutuelle"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 20,
+    "fields": {
+      "date": "2022-04-19",
+      "total_amount": "-8.37",
+      "vat_percentage": 0,
+      "category": 2,
+      "sub_category": 3,
+      "label": "Hébergement site web"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 21,
+    "fields": {
+      "date": "2022-04-22",
+      "total_amount": "-88.12",
+      "vat_percentage": 20,
+      "category": 2,
+      "sub_category": 3,
+      "label": "Abonnement SASS"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 22,
+    "fields": {
+      "date": "2022-04-30",
+      "total_amount": "-4500.00",
+      "vat_percentage": 0,
+      "category": 3,
+      "sub_category": null,
+      "label": "Salaire président"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 23,
+    "fields": {
+      "date": "2022-03-15",
+      "total_amount": "-400.00",
+      "vat_percentage": 0,
+      "category": 6,
+      "sub_category": 4,
+      "label": "Prélévement à la source"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 24,
+    "fields": {
+      "date": "2022-04-15",
+      "total_amount": "-2458.13",
+      "vat_percentage": 0,
+      "category": 5,
+      "sub_category": 5,
+      "label": "URSAFF"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 25,
+    "fields": {
+      "date": "2022-04-15",
+      "total_amount": "-855.00",
+      "vat_percentage": 0,
+      "category": 5,
+      "sub_category": 6,
+      "label": "Retraite"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 26,
+    "fields": {
+      "date": "2022-05-31",
+      "total_amount": "15600.00",
+      "vat_percentage": 20,
+      "category": 1,
+      "sub_category": null,
+      "label": "Client Foo"
+    }
+  }
+]

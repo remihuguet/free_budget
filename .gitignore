@@ -1,4 +1,5 @@
 .venv/
+.vscode/
 .python-version
 *.pyc
 db.sqlite3

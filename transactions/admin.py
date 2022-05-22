@@ -14,12 +14,12 @@ class TransactionAdmin(admin.ModelAdmin):
     date_hierarchy = "date"
     exclude = []
     fieldsets = (
-        (None, {"fields": ("amount", "category", "label")}),
-        ("Détails", {"fields": ("sub_category", "vat_percentage", "vat_amount")}),
+        (None, {"fields": ("date", "total_amount", "category", "label")}),
+        ("Détails", {"fields": ("sub_category", "vat_percentage")}),
     )
     list_display = ("id", "date", "total_amount", "amount", "label", "category")
     list_filter = ("date", "category")
-    list_editable = ("category", "label")
+    list_editable = ("date", "category", "label", "total_amount")
     ordering = ("-date",)
     search_fields = ("label", "amount")
 

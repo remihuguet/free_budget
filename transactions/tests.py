@@ -1,14 +1,14 @@
-from unicodedata import category
+import decimal
+import pytest
 from transactions.models import Transaction, SubCategory
 from django.core.exceptions import ValidationError
-import pytest
 
 
 @pytest.mark.django_db
 def test_transaction_sub_category_must_have_same_category():
     s = SubCategory(name="test", category=1)
     t = Transaction(
-        amount=100,
+        total_amount=100,
         label="Test",
         category=0,
         sub_category=s,
@@ -22,7 +22,8 @@ def test_transaction_saved_correctly():
     s = SubCategory(name="test", category=1)
     s.save()
     t = Transaction(
-        amount=100,
+        total_amount=100,
+        vat_percentage=20,
         label="Test",
         category=1,
         sub_category=s,
@@ -31,4 +32,5 @@ def test_transaction_saved_correctly():
 
     saved = Transaction.objects.get(label="Test")
     assert saved == t
-    assert saved.total_amount == 100
+    assert saved.amount == decimal.Decimal("83.33")
+    assert saved.vat_amount == decimal.Decimal("16.67")
