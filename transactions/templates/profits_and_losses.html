@@ -1,0 +1,33 @@
+{% extends "__base.html" %}
+
+{% block body %}
+
+<h1>Profits and losses</h1>
+
+<table>
+    <thead>
+        <th>-</th>
+        {% for month in months %}
+            <th>{{month|date:"M Y"}}</th>
+        {% endfor %}
+    </thead>
+    <tbody>
+        {% for transac in transactions%}
+            {% ifchanged transac.category %}
+                <tr><td span={{months|length|add:1}}>{{transac.get_category_display}}</td></tr>
+            {% endifchanged %}
+            {% ifchanged transac.sub_category %}
+                <tr><td span={{months|length|add:1}}>{{transac.sub_category.name}}</td></tr>
+            {% endifchanged %}
+            <tr>
+                <td>{{transac.label}}</td>
+                {% for month in months %}
+                    <td>{% if transac.date.year == month.year and transac.date.month == month.month %} {{transac.total_amount}}{% endif %}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

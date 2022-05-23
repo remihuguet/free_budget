@@ -232,7 +232,7 @@
     "model": "transactions.transaction",
     "pk": 23,
     "fields": {
-      "date": "2022-03-15",
+      "date": "2022-04-15",
       "total_amount": "-400.00",
       "vat_percentage": 0,
       "category": 6,
@@ -268,7 +268,7 @@
     "model": "transactions.transaction",
     "pk": 26,
     "fields": {
-      "date": "2022-05-31",
+      "date": "2022-04-30",
       "total_amount": "15600.00",
       "vat_percentage": 20,
       "category": 1,
