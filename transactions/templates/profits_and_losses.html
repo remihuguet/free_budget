@@ -12,17 +12,19 @@
         {% endfor %}
     </thead>
     <tbody>
-        {% for transac in transactions%}
-            {% ifchanged transac.category %}
-                <tr><td colspan={{months|length|add:1}}>{{transac.get_category_display}}</td></tr>
+        {% for label in pandl %}
+            {% ifchanged label.category %}
+                <tr><td colspan={{months|length|add:1}}>{{label.category}}</td></tr>
             {% endifchanged %}
-            {% ifchanged transac.sub_category %}
-                <tr><td colspan={{months|length|add:1}}>{{transac.sub_category.name}}</td></tr>
+            {% ifchanged label.sub_category %}
+                {% if label.sub_category != "" %}
+                    <tr><td colspan={{months|length|add:1}}>{{label.sub_category}}</td></tr>
+                {% endif %}
             {% endifchanged %}
             <tr>
-                <td>{{transac.label}}</td>
-                {% for month in months %}
-                    <td>{% if transac.date.year == month.year and transac.date.month == month.month %} {{transac.total_amount}}{% endif %}</td>
+                <td>{{label.label}}</td>
+                {% for amount in label.amounts %}
+                    <td>{{amount}}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
