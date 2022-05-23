@@ -4,7 +4,7 @@
 
 <h1>Profits and losses</h1>
 
-<table>
+<table class="table table-striped">
     <thead>
         <th>-</th>
         {% for month in months %}
@@ -14,10 +14,10 @@
     <tbody>
         {% for transac in transactions%}
             {% ifchanged transac.category %}
-                <tr><td span={{months|length|add:1}}>{{transac.get_category_display}}</td></tr>
+                <tr><td colspan={{months|length|add:1}}>{{transac.get_category_display}}</td></tr>
             {% endifchanged %}
             {% ifchanged transac.sub_category %}
-                <tr><td span={{months|length|add:1}}>{{transac.sub_category.name}}</td></tr>
+                <tr><td colspan={{months|length|add:1}}>{{transac.sub_category.name}}</td></tr>
             {% endifchanged %}
             <tr>
                 <td>{{transac.label}}</td>
