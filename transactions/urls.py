@@ -1,4 +1,7 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [path("pl", views.profitsandlosses, name="pandl")]
+urlpatterns = [
+    path("", views.add_transaction, name="add_transaction"),
+    path("pl", views.profitsandlosses, name="pandl"),
+]

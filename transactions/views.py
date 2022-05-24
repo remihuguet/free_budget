@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 from django.views.decorators.http import require_http_methods
+
+from transactions.forms import AddTransactionForm
 from .models import Transaction
 
 
@@ -38,3 +41,17 @@ def profitsandlosses(request):
             "ref_months": ref_months,
         },
     )
+
+
+@require_http_methods(["GET", "POST"])
+def add_transaction(request):
+    if request.method == "POST":
+        form = AddTransactionForm(request.POST)
+        if form.is_valid():
+            transaction = Transaction(**form.cleaned_data)
+            transaction.save()
+            messages.info(request, f"Transaction {transaction} created")
+        else:
+            return render(request, "add_transaction.html", {"form": form})
+    form = AddTransactionForm()
+    return render(request, "add_transaction.html", {"form": form})
