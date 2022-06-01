@@ -1,12 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render, resolve_url
 from django.views.decorators.http import require_http_methods
-
+from django.contrib.auth.decorators import login_required, permission_required
 from transactions.forms import AddTransactionForm, EditTransactionForm
 from .models import Transaction
 
 
 @require_http_methods(["GET"])
+@login_required
 def profitsandlosses(request):
     transactions = Transaction.objects.all().order_by(
         "category", "sub_category", "label"
@@ -44,6 +45,8 @@ def profitsandlosses(request):
 
 
 @require_http_methods(["GET", "POST"])
+@login_required
+@permission_required("transactions.add_transaction")
 def add_transaction(request):
     if request.method == "POST":
         form = AddTransactionForm(request.POST)
@@ -58,6 +61,8 @@ def add_transaction(request):
 
 
 @require_http_methods(["GET", "POST"])
+@login_required
+@permission_required("transactions.change_transaction")
 def edit_transaction(request, id: int):
     transaction = get_object_or_404(Transaction.objects, id=id)
     if request.method == "POST":
