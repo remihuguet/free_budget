@@ -52,6 +52,7 @@ def add_transaction(request):
         form = AddTransactionForm(request.POST)
         if form.is_valid():
             transaction = Transaction(**form.cleaned_data)
+            transaction.category = int(form.cleaned_data["category"])
             transaction.save()
             messages.info(request, f"Transaction {transaction} created")
             return redirect("pandl")
