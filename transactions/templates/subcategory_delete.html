@@ -1,0 +1,13 @@
+{% extends "__base.html" %}
+
+{% block body %}
+
+<h1>Delete subcategory</h1>
+
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form }}
+    <input type="submit" value="Confirm">
+</form>
+
+{% endblock %}

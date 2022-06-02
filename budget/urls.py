@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.redirect_home),
+    path("", RedirectView.as_view(url="transactions/pl")),
     path("health/", views.health),
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),

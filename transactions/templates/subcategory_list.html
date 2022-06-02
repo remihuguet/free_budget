@@ -1,0 +1,15 @@
+{% extends "__base.html" %}
+
+{% block body %}
+
+<h1>Sous catégories</h1>
+
+<a href="{% url 'add_subcategory' %}">Add</a>
+<ul>
+    {% for subcat in object_list %}
+    <li> <a href="{% url 'update_subcategory' subcat.id %}">{{subcat.get_category_display}} - {{subcat.name}}</a> - <a href="{% url 'delete_subcategory' subcat.id %}">Supprimer</a></li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
