@@ -1,4 +1,5 @@
 Django
+djangorestframework
 black
 flake8
 pytest

@@ -1,6 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth.decorators import login_required, permission_required
-from . import views
+from rest_framework import routers
+from . import views, api
+
+api_router = routers.DefaultRouter()
+api_router.register(r"subcategories", api.SubcategoryViewSet)
 
 urlpatterns = [
     path(
@@ -10,6 +14,7 @@ urlpatterns = [
         ),
         name="add_transaction",
     ),
+    path("api/", include(api_router.urls)),
     path(
         "<int:id>",
         permission_required("transactions.change_transaction")(
