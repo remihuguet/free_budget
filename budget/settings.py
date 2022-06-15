@@ -10,7 +10,7 @@ SECRET_KEY = "django-insecure-0spawchj%2e459bwiko$tm7c0+#7q@-=l&&e+4l4p!4^s%^sl(
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*.herokuapp.com"]
+ALLOWED_HOSTS = ["sheltered-sierra-89696.herokuapp.com"]
 
 
 # Application definition
