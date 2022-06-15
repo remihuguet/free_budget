@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv(
 
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["sheltered-sierra-89696.herokuapp.com"]
+ALLOWED_HOSTS = ["studi-budget.herokuapp.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
